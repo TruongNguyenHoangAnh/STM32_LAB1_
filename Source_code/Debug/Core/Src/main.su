@@ -1,5 +1,4 @@
-main.c:56:6:Exercise_1	8	static
-main.c:71:5:main	8	static
-main.c:116:6:SystemClock_Config	72	static
-main.c:152:13:MX_GPIO_Init	32	static
-main.c:179:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:63:5:main	8	static
+main.c:109:6:SystemClock_Config	72	static
+main.c:145:13:MX_GPIO_Init	32	static
+main.c:172:6:Error_Handler	4	static,ignoring_inline_asm

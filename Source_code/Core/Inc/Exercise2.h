@@ -5,13 +5,14 @@
  *      Author: HOANG ANH
  */
 
-#ifndef INC_EXERCISE1_H_
-#define INC_EXERCISE1_H_
+#ifndef INC_EXERCISE2_H_
+#define INC_EXERCISE2_H_
 
 #include "main.h"
 #define LED_RED GPIO_PIN_5
 #define LED_YELLOW GPIO_PIN_6
-void EX1_Init1(void);
-void EX_1(void);
+#define LED_GREEN GPIO_PIN_4
+void EX2_Init2(void);
+void Ex_2(void);
 
 #endif /* INC_EXERCISE1_H_ */
