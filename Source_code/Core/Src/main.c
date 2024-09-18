@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "Exercise10.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,7 +47,6 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -84,24 +83,71 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  EX10_Init10();
+//  int counter = 0; //CODE USE TO EX4
+//  int state = 4; //CODE USE TO EX5
+  int hour = 5, minute = 30, second = 45; //CODE USE TO EX10
   while (1)
   {
-	  HAL_GPIO_TogglePin(RED_LED_GPIO_Port, RED_LED_Pin);
-	  HAL_Delay(1000);
+////////////////////////////////////////////////////////
+//CODE USE TO EX:10
+clearAllClock();
+setNumberOnClock(hour);
+setNumberOnClock(minute/5);
+setNumberOnClock(second/5);
+HAL_Delay(1000);
+clearNumberOnClock(hour);
+clearNumberOnClock(minute/5);
+clearNumberOnClock(second/5);
+second++;
+if (second >= 60) {
+	  second = 0;
+	  ++minute;
+}
+if (minute >= 60) {
+	  minute = 0;
+	  ++hour;
+}
+if (hour >= 12) {
+	  hour = 0;
+}
+//////////////////////////////////////////////////////////
+//CODE USE TO EX5
+//	  	  if(state < 0) state = 4;
+//	  	  Ex_5(state--);
+
+//////////////////////////////////////////////////////////
+//CODE USE TO EX:4
+//	  	  if (counter >= 10) counter = 0;
+//	  	  Ex_4(counter);
+//	  	  HAL_Delay(1000);
+//	  	  counter++;
+
+//////////////////////////////////////////////////////////
+//CODE USE TO EX:3
+//Ex_3();
+
+//////////////////////////////////////////////////////////
+//CODE USE TO EX:2
+//Ex_2();
+
+//////////////////////////////////////////////////////////
+//CODE USE TO EX:1
+//Ex_1();
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+ }
   /* USER CODE END 3 */
 }
-
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -135,30 +181,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-}
-
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, RED_LED_Pin|YELLOW_LED_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : RED_LED_Pin YELLOW_LED_Pin */
-  GPIO_InitStruct.Pin = RED_LED_Pin|YELLOW_LED_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 
 /* USER CODE BEGIN 4 */
