@@ -12,6 +12,6 @@
 #define LED_RED GPIO_PIN_5
 #define LED_YELLOW GPIO_PIN_6
 void EX1_Init1(void);
-void EX_1(void);
+void Ex_1(void);
 
 #endif /* INC_EXERCISE1_H_ */
