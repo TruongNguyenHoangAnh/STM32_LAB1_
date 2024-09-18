@@ -89,34 +89,33 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  EX10_Init10();
 //  int counter = 0; //CODE USE TO EX4
 //  int state = 4; //CODE USE TO EX5
-  int hour = 5, minute = 30, second = 45; //CODE USE TO EX10
+//  int hour = 5, minute = 30, second = 45; //CODE USE TO EX10
   while (1)
   {
 ////////////////////////////////////////////////////////
 //CODE USE TO EX:10
-clearAllClock();
-setNumberOnClock(hour);
-setNumberOnClock(minute/5);
-setNumberOnClock(second/5);
-HAL_Delay(1000);
-clearNumberOnClock(hour);
-clearNumberOnClock(minute/5);
-clearNumberOnClock(second/5);
-second++;
-if (second >= 60) {
-	  second = 0;
-	  ++minute;
-}
-if (minute >= 60) {
-	  minute = 0;
-	  ++hour;
-}
-if (hour >= 12) {
-	  hour = 0;
-}
+//clearAllClock();
+//setNumberOnClock(hour);
+//setNumberOnClock(minute/5);
+//setNumberOnClock(second/5);
+//HAL_Delay(1000);
+//clearNumberOnClock(hour);
+//clearNumberOnClock(minute/5);
+//clearNumberOnClock(second/5);
+//second++;
+//if (second >= 60) {
+//	  second = 0;
+//	  ++minute;
+//}
+//if (minute >= 60) {
+//	  minute = 0;
+//	  ++hour;
+//}
+//if (hour >= 12) {
+//	  hour = 0;
+//}
 //////////////////////////////////////////////////////////
 //CODE USE TO EX5
 //	  	  if(state < 0) state = 4;
